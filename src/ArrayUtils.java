@@ -38,29 +38,23 @@ public class ArrayUtils {
         int rows = matrix.length;
 
         int[] sums = new int[rows];
-        int[] indexes = new int[rows];
 
         for (int i = 0; i < rows; i++) {
             sums[i] = sum(matrix[i]);
-            indexes[i] = i;
         }
 
         for (int i = 0; i < rows; i++) {
             for (int j = i + 1; j < rows; j++) {
                 if (sums[i] > sums[j]) {
-                    swapByIndex(sums, i, j);
-                    // потому что не хочу писать отдельный метод под двумерный массив.
-                    // а по сути по скорости операци то же самое. даже подольше засчет финального обхода.
-                    swapByIndex(indexes, i, j);
+                    int tmpSum = sums[i];
+                    sums[i] = sums[j];
+                    sums[j] = tmpSum;
+
+                    int[] tmpArray = matrix[i];
+                    matrix[i] = matrix[j];
+                    matrix[j] = tmpArray;
                 }
             }
-        }
-
-        int[][] tmpMatrix = matrix.clone();
-
-        for (int i = 0; i < rows; i++) {
-            int sortedIndex = indexes[i];
-            matrix[i] = tmpMatrix[sortedIndex];
         }
     }
 
@@ -88,12 +82,5 @@ public class ArrayUtils {
         }
 
         System.out.print("}\n");
-    }
-
-
-    private static void swapByIndex(int[] arr, int indexA, int indexB) {
-        int tmp = arr[indexA];
-        arr[indexA] = arr[indexB];
-        arr[indexB] = tmp;
     }
 }
