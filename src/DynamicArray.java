@@ -1,3 +1,5 @@
+// todo: javadoc
+
 public class DynamicArray {
     private int[] arr;
     private int size;
