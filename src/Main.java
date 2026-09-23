@@ -1,14 +1,24 @@
 public class Main {
     public static void main(String[] args) {
-        int[][] matrix = {
-                {9, 9, 9},
-                {1, 1, 2},
-                {0, 0, 0},
-                {2, 1, 1}
-        };
+        DynamicArray dynamicArr = new DynamicArray();
+        dynamicArr.arr = new int[]{1, 2, 3};
 
-        ArrayUtils.printMatrix(matrix);
-        ArrayUtils.sortMatrixBySum(matrix);
-        ArrayUtils.printMatrix(matrix);
+        System.out.println(dynamicArr);
+
+        dynamicArr.removeLast();
+
+        System.out.println(dynamicArr);
+
+        dynamicArr.removeLast();
+
+        System.out.println(dynamicArr);
+
+        dynamicArr.removeLast();
+
+        System.out.println(dynamicArr);
+
+        dynamicArr.removeLast();
+
+        System.out.println(dynamicArr);
     }
 }
