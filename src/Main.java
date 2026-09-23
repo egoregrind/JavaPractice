@@ -1,24 +1,29 @@
 public class Main {
     public static void main(String[] args) {
-        DynamicArray dynamicArr = new DynamicArray();
-        dynamicArr.arr = new int[]{1, 2, 3};
+        DynamicArray arr = new DynamicArray();
+        System.out.println(arr);
 
-        System.out.println(dynamicArr);
+        arr.addLast(2);
+        System.out.println(arr);
 
-        dynamicArr.removeLast();
+        arr.addFirst(1);
+        System.out.println(arr);
 
-        System.out.println(dynamicArr);
+        arr.addFirst(0);
+        System.out.println(arr);
 
-        dynamicArr.removeLast();
+        arr.insert(5, 3);
+        System.out.println(arr);
 
-        System.out.println(dynamicArr);
+        System.out.println(arr.sum());
 
-        dynamicArr.removeLast();
+        arr.removeFrom(2);
+        System.out.println(arr);
 
-        System.out.println(dynamicArr);
+        arr.removeFirst();
+        System.out.println(arr);
 
-        dynamicArr.removeLast();
-
-        System.out.println(dynamicArr);
+        arr.removeLast();
+        System.out.println(arr);
     }
 }
