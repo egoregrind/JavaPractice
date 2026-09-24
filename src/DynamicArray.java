@@ -17,9 +17,7 @@ public class DynamicArray {
     };
 
     public void addLast(int num) {
-        if (size + 1 > capacity) {
-            arr = changeCapacity(true);
-        }
+        arr = growCapacityCheck();
 
         arr[size++] = num;
     }
@@ -31,17 +29,13 @@ public class DynamicArray {
 
         int tmp = arr[--size];
 
-        if (size < (capacity / CAPACITY_COEFFICIENT) && capacity > 10) {
-            arr = changeCapacity(false);
-        }
+        arr = dropCapacityCheck();
 
         return tmp;
     }
 
     public void addFirst(int num) {
-        if (size + 1 > capacity) {
-            arr = changeCapacity(true);
-        }
+        arr = growCapacityCheck();
 
         for (int i = size; i > 0; i--) {
             arr[i] = arr[i - 1];
@@ -62,9 +56,7 @@ public class DynamicArray {
         }
         size--;
 
-        if (size < (capacity / CAPACITY_COEFFICIENT) && capacity > 10) {
-            arr = changeCapacity(false);
-        }
+        arr = dropCapacityCheck();
 
         return tmp;
     }
@@ -74,9 +66,7 @@ public class DynamicArray {
             return;
         }
 
-        if (size + 1 > capacity) {
-            arr = changeCapacity(true);
-        }
+        arr = growCapacityCheck();
 
         for (int i = size; i > idx; i--) {
             arr[i] = arr[i - 1];
@@ -97,9 +87,7 @@ public class DynamicArray {
         }
         size--;
 
-        if (size < (capacity / CAPACITY_COEFFICIENT) && capacity > 10) {
-            arr = changeCapacity(false);
-        }
+        arr = dropCapacityCheck();
 
         return tmp;
     }
@@ -114,15 +102,25 @@ public class DynamicArray {
         return res;
     }
 
-    private int[] changeCapacity(boolean expand) {
-        int newCapacity;
-
-        if (expand) {
-            newCapacity = capacity * CAPACITY_COEFFICIENT;
-        } else {
-            newCapacity = capacity / CAPACITY_COEFFICIENT;
+    private int[] dropCapacityCheck() {
+        int newCapacity = capacity / CAPACITY_COEFFICIENT;
+        if (size < newCapacity && capacity > 10) {
+            return changeCapacity(newCapacity);
         }
 
+        return arr;
+    }
+
+    private int[] growCapacityCheck() {
+        int newCapacity = capacity * CAPACITY_COEFFICIENT;
+        if (size + 1 > capacity) {
+            arr = changeCapacity(newCapacity);
+        }
+
+        return arr;
+    }
+
+    private int[] changeCapacity(int newCapacity) {
         int[] res = new int[newCapacity];
 
         for (int i = 0; i < size; i++) {

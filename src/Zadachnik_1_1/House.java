@@ -4,6 +4,10 @@ public class House {
     private int floorCount;
 
     public House(int floorCount) {
+        if (floorCount < 1) {
+            this.floorCount = 1;
+            return;
+        }
         this.floorCount = floorCount;
     }
 
