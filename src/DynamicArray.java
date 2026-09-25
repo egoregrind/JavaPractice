@@ -12,27 +12,37 @@
  * </ul>
  */
 public class DynamicArray {
+    static private final int DEFAULT_INITIAL_CAPACITY = 10;
+    static private final int[] DEFAULT_INITIAL_ARRAY = {};
+    static private final int CAPACITY_COEFFICIENT = 2;
+
+    private int initialCapacity;
+
     private int[] arr;
     private int size;
-    private int capacity;
-    private final int CAPACITY_COEFFICIENT = 2;
+
+    /**
+     * Создаёт динамический массив с начальной вместимостью по умолчанию (10).
+     */
+    public DynamicArray() {
+        arr = DEFAULT_INITIAL_ARRAY;
+        initialCapacity = DEFAULT_INITIAL_CAPACITY;
+        size = 0;
+    };
 
     /**
      * Создаёт динамический массив с заданной начальной вместимостью.
      * @param cap начальная вместимость массива
      */
     public DynamicArray(int cap) {
-        arr = new int[cap];
-        capacity = cap;
+        if (cap < 0) {
+            initialCapacity = DEFAULT_INITIAL_CAPACITY;
+        }
+
+        arr = DEFAULT_INITIAL_ARRAY;
+        initialCapacity = cap;
         size = 0;
     }
-
-    /**
-     * Создаёт динамический массив с начальной вместимостью по умолчанию (10).
-     */
-    public DynamicArray() {
-        this(10);
-    };
 
     /**
      * <p>Добавляет элемент в конец массива:</p>
@@ -100,7 +110,7 @@ public class DynamicArray {
      * @param num целочисленный элемент который хотим вставить
      * @param idx индекс по которому вставляем элемент (от 0 до size)
      */
-    public void insert(int num, int idx) {
+    public void add(int num, int idx) {
         if (idx < 0 || idx > size) {
             return;
         }
@@ -120,7 +130,7 @@ public class DynamicArray {
      * @param idx индекс элемента который хотим удалить
      * @return удалённый элемент по индексу, или 0 если индекс вне допустимого диапазона
      */
-    public int removeFrom(int idx) {
+    public int remove(int idx) {
         if (idx < 0 || idx > size) {
             return 0;
         }
@@ -155,8 +165,13 @@ public class DynamicArray {
      * @return массив с уменьшенной вместимостью, или текущий массив если уменьшение не требуется
      */
     private int[] dropCapacityCheck() {
-        int newCapacity = capacity / CAPACITY_COEFFICIENT;
-        if (size < newCapacity && capacity > 10) {
+        int newCapacity = arr.length / CAPACITY_COEFFICIENT;
+
+        if (newCapacity < initialCapacity) {
+            return arr;
+        }
+
+        if (size < newCapacity) {
             return changeCapacity(newCapacity);
         }
 
@@ -168,8 +183,13 @@ public class DynamicArray {
      * @return массив с увеличенной вместимостью, или текущий массив если увеличение не требуется
      */
     private int[] growCapacityCheck() {
-        int newCapacity = capacity * CAPACITY_COEFFICIENT;
-        if (size + 1 > capacity) {
+        int newCapacity = (arr.length * CAPACITY_COEFFICIENT) + 1;
+
+        if (newCapacity < initialCapacity) {
+            newCapacity = initialCapacity;
+        }
+
+        if (size + 1 > arr.length) {
             arr = changeCapacity(newCapacity);
         }
 
@@ -188,8 +208,6 @@ public class DynamicArray {
             res[i] = arr[i];
         }
 
-        capacity = newCapacity;
-
         return res;
     }
 
@@ -200,9 +218,12 @@ public class DynamicArray {
      * }</pre>
      * @return строковое представление динамического массива
      */
+    @Override
     public String toString() {
         if (size == 0) {
-            return "[]";
+            String res = "[]";
+            res += " CAP: " + arr.length + ", SIZE: " + size;
+            return res;
         }
 
         String res = "[";
@@ -213,7 +234,7 @@ public class DynamicArray {
 
         res += arr[size - 1] + "]";
 
-        // res += " CAP: " + capacity + ", SIZE: " + size;
+        res += " CAP: " + arr.length + ", SIZE: " + size;
 
         return res;
     }

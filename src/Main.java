@@ -12,12 +12,12 @@ public class Main {
         arr.addFirst(0);
         System.out.println(arr);
 
-        arr.insert(5, 3);
+        arr.add(5, 3);
         System.out.println(arr);
 
         System.out.println(arr.sum());
 
-        arr.removeFrom(2);
+        arr.remove(2);
         System.out.println(arr);
 
         arr.removeFirst();
