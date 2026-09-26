@@ -17,7 +17,6 @@ public class DynamicArray {
     static private final int CAPACITY_COEFFICIENT = 2;
 
     private int initialCapacity;
-
     private int[] arr;
     private int size;
 
@@ -25,9 +24,9 @@ public class DynamicArray {
      * Создаёт динамический массив с начальной вместимостью по умолчанию (10).
      */
     public DynamicArray() {
-        arr = DEFAULT_INITIAL_ARRAY;
-        initialCapacity = DEFAULT_INITIAL_CAPACITY;
-        size = 0;
+        this.arr = DEFAULT_INITIAL_ARRAY;
+        this.initialCapacity = DEFAULT_INITIAL_CAPACITY;
+        this.size = 0;
     };
 
     /**
@@ -38,11 +37,29 @@ public class DynamicArray {
         if (cap < 0) {
             initialCapacity = DEFAULT_INITIAL_CAPACITY;
         }
-
-        arr = DEFAULT_INITIAL_ARRAY;
-        initialCapacity = cap;
-        size = 0;
+        this.arr = DEFAULT_INITIAL_ARRAY;
+        this.initialCapacity = cap;
+        this.size = 0;
     }
+
+    public DynamicArray(int... arr) {
+        this.size = arr.length;
+        this.initialCapacity = arr.length;
+
+        for (int i = 0; i < arr.length; i++) {
+            this.arr[i] = arr[i];
+        }
+    }
+
+    public DynamicArray(DynamicArray array) {
+        this.size = array.size;
+        this.initialCapacity = array.initialCapacity;
+
+        for (int i = 0; i < array.size; i++) {
+            this.arr[i] = array.arr[i];
+        }
+    }
+
 
     /**
      * <p>Добавляет элемент в конец массива:</p>
@@ -50,7 +67,6 @@ public class DynamicArray {
      */
     public void addLast(int num) {
         arr = growCapacityCheck();
-
         arr[size++] = num;
     }
 
@@ -64,9 +80,7 @@ public class DynamicArray {
         }
 
         int tmp = arr[--size];
-
         arr = dropCapacityCheck();
-
         return tmp;
     }
 
@@ -101,7 +115,6 @@ public class DynamicArray {
         size--;
 
         arr = dropCapacityCheck();
-
         return tmp;
     }
 
@@ -167,11 +180,10 @@ public class DynamicArray {
     private int[] dropCapacityCheck() {
         int newCapacity = arr.length / CAPACITY_COEFFICIENT;
 
-        if (newCapacity < initialCapacity) {
-            return arr;
-        }
-
         if (size < newCapacity) {
+            if (newCapacity < initialCapacity) {
+                newCapacity = initialCapacity;
+            }
             return changeCapacity(newCapacity);
         }
 
@@ -183,13 +195,13 @@ public class DynamicArray {
      * @return массив с увеличенной вместимостью, или текущий массив если увеличение не требуется
      */
     private int[] growCapacityCheck() {
-        int newCapacity = (arr.length * CAPACITY_COEFFICIENT) + 1;
-
-        if (newCapacity < initialCapacity) {
-            newCapacity = initialCapacity;
-        }
-
         if (size + 1 > arr.length) {
+            int newCapacity = arr.length * CAPACITY_COEFFICIENT;
+
+            if (newCapacity < initialCapacity) {
+                newCapacity = initialCapacity;
+            }
+
             arr = changeCapacity(newCapacity);
         }
 
