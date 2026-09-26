@@ -1,29 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        DynamicArray arr = new DynamicArray();
-        System.out.println(arr);
+        Author a = new Author("Тургенев");
+        Book b = new Book("Муму", a);
+        Book b2 = new Book("Отцы и Дети", a);
 
-        arr.addLast(2);
-        System.out.println(arr);
+        System.out.println(b);
+        System.out.println(b2);
 
-        arr.addFirst(1);
-        System.out.println(arr);
+        a.name = "Иван Тургенев";
 
-        arr.addFirst(0);
-        System.out.println(arr);
+        System.out.println(b);
+        System.out.println(b2);
 
-        arr.add(5, 3);
-        System.out.println(arr);
-
-        System.out.println(arr.sum());
-
-        arr.remove(2);
-        System.out.println(arr);
-
-        arr.removeFirst();
-        System.out.println(arr);
-
-        arr.removeLast();
-        System.out.println(arr);
+        a.printBooks();
     }
 }
+// дз: до 1.5 вкл. + сделать список книг

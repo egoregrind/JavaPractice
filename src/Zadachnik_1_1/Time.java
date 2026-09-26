@@ -1,13 +1,13 @@
 package Zadachnik_1_1;
 
 public class Time {
+    static private final int SECONDS_IN_HOUR = 3600;
+    static private final int SECONDS_IN_MINUTE = 60;
+    static private final int HOURS_IN_DAY = 24;
+
     private int hours;
     private int minutes;
     private int seconds;
-
-    private final int SECONDS_IN_HOUR = 3600;
-    private final int SECONDS_IN_MINUTE = 60;
-    private final int HOURS_IN_DAY = 24;
 
     public Time(int secondsFromStartOfDay) {
         hours = 0;

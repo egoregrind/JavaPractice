@@ -19,7 +19,7 @@ public class DynamicArray {
     /** Коэффициент изменения вместимости массива. */
     static private final int CAPACITY_COEFFICIENT = 2;
 
-    /** Базовая (минимальная) вместимость массива. */
+    /** Базовая вместимость массива. */
     private int initialCapacity;
     /** Внутренний массив для хранения элементов. */
     private int[] arr;
