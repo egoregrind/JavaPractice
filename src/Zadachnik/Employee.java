@@ -6,6 +6,8 @@ public class Employee {
 
     public Employee(String name, Department department) {
         this.name = name;
+
+        department.addEmployee(this);
         this.department = department;
     }
 

@@ -204,7 +204,7 @@ public class Main {
         System.out.println();
 
         // 1.3.3.
-        System.out.println("1.3.3. cущность Город.");
+        System.out.println("1.3.3. Cущность Город.");
 
         Town townA = new Town("A");
         Town townB = new Town("B");
@@ -238,8 +238,9 @@ public class Main {
         // 1.3.4.
         System.out.println("1.3.4. Список сотрудников отдела.");
 
-        System.out.println();
+        System.out.println(d.getEmployees());
 
+        System.out.println();
 
     }
 }
