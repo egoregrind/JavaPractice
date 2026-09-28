@@ -140,7 +140,19 @@ public class Main {
         System.out.println();
 
         // 1.2.4.
+        Department d = new Department("IT");
 
+        Employee employee1 = new Employee("Петров", d);
+        Employee employee2 = new Employee("Козлов", d);
+        Employee employee3 = new Employee("Сидоров", d);
+
+        d.setBoss(employee2);
+
+        System.out.println(employee1);
+        System.out.println(employee2);
+        System.out.println(employee3);
+
+        System.out.println();
     }
     
 }
