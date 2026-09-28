@@ -201,6 +201,45 @@ public class Main {
         System.out.println(pl1);
         System.out.println(pl2);
 
+        System.out.println();
+
         // 1.3.3.
+        System.out.println("1.3.3. cущность Город.");
+
+        Town townA = new Town("A");
+        Town townB = new Town("B");
+        Town townC = new Town("C");
+        Town townD = new Town("D");
+        Town townE = new Town("E");
+        Town townF = new Town("F");
+
+        townA.addRoute(townF, 1);
+        townA.addRoute(townB, 5);
+        townA.addRoute(townD, 6);
+
+        townF.addRoute(townB, 1);
+        townF.addRoute(townE, 2);
+
+        townE.addRoute(townF, 2);
+
+        townB.addRoute(townA, 5);
+        townB.addRoute(townC, 3);
+
+        townC.addRoute(townB, 3);
+        townC.addRoute(townD, 4);
+
+        townD.addRoute(townC, 4);
+        townD.addRoute(townE, 2);
+        townD.addRoute(townA, 6);
+
+        System.out.println(townA);
+        System.out.println();
+
+        // 1.3.4.
+        System.out.println("1.3.4. Список сотрудников отдела.");
+
+        System.out.println();
+
+
     }
 }

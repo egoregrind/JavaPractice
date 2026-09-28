@@ -14,7 +14,6 @@ public class Student {
 
     public Student(String name, List<Integer> grades) {
         this.name = name;
-        this.grades = new ArrayList<>();
 
         validateGrades(grades);
         this.grades = new ArrayList<>(grades);
