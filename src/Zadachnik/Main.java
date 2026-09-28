@@ -3,6 +3,7 @@ package Zadachnik;
 public class Main {
     public static void main() {
 //        // ====== 1.1.x ======
+//
 //        // 1.1.1.
 //        System.out.println("1.1.1. cущность Точка в двух плоскостях");
 //
@@ -69,6 +70,7 @@ public class Main {
 //        System.out.println();
 
         // ====== 1.2.x ======
+
         // 1.2.1.
         System.out.println("1.2.1. cущность Линия.");
 
@@ -153,6 +155,52 @@ public class Main {
         System.out.println(employee3);
 
         System.out.println();
+
+        // ====== 1.3.x ======
+
+        // 1.3.1.
+        System.out.println("1.3.1. cущность Студент.");
+
+        Student s1 = new Student("Вася", 3, 4, 5);
+        Student s2 = new Student("Петя", s1.getGrades());
+        Student s3 = new Student("Андрей", s1.getGrades());
+
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
+
+        s1.setGrade(0, 5);
+        System.out.println();
+
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
+
+        System.out.println();
+
+        // 1.3.2.
+        System.out.println("1.3.2. cущность Ломаная линия.");
+
+        PolyLine pl1 = new PolyLine(
+                new Point(1, 5),
+                new Point(2, 8),
+                new Point(5, 3));
+
+        PolyLine pl2 = new PolyLine(
+                pl1.getBegin(),
+                new Point(2, -5),
+                new Point(4, -8),
+                pl1.getEnd());
+
+        System.out.println(pl1);
+        System.out.println(pl2);
+
+        pl1.setPoint(0, 19, 51);
+        System.out.println();
+
+        System.out.println(pl1);
+        System.out.println(pl2);
+
+        // 1.3.3.
     }
-    
 }
