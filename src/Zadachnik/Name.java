@@ -11,19 +11,47 @@ public class Name {
         this.middleName = middleName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public boolean hasMiddleName() {
+        return !middleName.isBlank();
+    }
+
     @Override
     public String toString() {
         String res = "";
 
-        if (!lastName.isEmpty()) {
+        if (!lastName.isBlank()) {
             res += lastName;
         }
 
-        if (!firstName.isEmpty()) {
+        if (!firstName.isBlank()) {
             res += " " + firstName;
         }
 
-        if (!middleName.isEmpty()) {
+        if (!middleName.isBlank()) {
             res += " " + middleName;
         }
 

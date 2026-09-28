@@ -126,7 +126,18 @@ public class Main {
         System.out.println();
 
         // 1.2.3.
+        Human human4 = new Human(new Name("Чудов", "Иван", ""));
+        Human human5 = new Human(new Name("Чудов", "Петр", ""));
+        Human human6 = new Human(new Name("", "Борис", ""));
 
+        human5.setFather(human4);
+        human6.setFather(human5);
+
+        System.out.println(human4);
+        System.out.println(human5);
+        System.out.println(human6);
+
+        System.out.println();
 
         // 1.2.4.
 
