@@ -31,17 +31,6 @@ public class Author {
         System.out.println("[added] " + b);
     }
 
-    public void addBook(List<Book> books) {
-        if (books == null) {
-            throw new IllegalArgumentException();
-        }
-
-        for (int i = 0; i < books.toArray().length; i++) {
-            this.books.addLast(books.get(i));
-            System.out.println("[added] " + books.get(i));
-        }
-    }
-
     public String printBooks() {
         String res = name + ":\n";
 
