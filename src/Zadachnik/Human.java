@@ -1,10 +1,10 @@
 package Zadachnik;
 
 public class Human {
-    private String name;
+    private Name name;
     private int height;
 
-    public Human(String name, int height) {
+    public Human(Name name, int height) {
         this.name = name;
         this.height = height;
     }

@@ -2,7 +2,7 @@ package Zadachnik;
 
 public class Main {
     public static void main() {
-//        // == 1.2.x ==
+//        // ====== 1.1.x ======
 //        // 1.1.1.
 //        System.out.println("1.1.1. cущность Точка в двух плоскостях");
 //
@@ -70,7 +70,7 @@ public class Main {
 
         // ====== 1.2.x ======
         // 1.2.1.
-        System.out.println("1.1.5. cущность Линия");
+        System.out.println("1.2.1. cущность Линия.");
 
         Line line1 = new Line(1, 3, 23, 8);
         Line line2 = new Line(5, 10, 25, 10);
@@ -80,6 +80,7 @@ public class Main {
         System.out.println(line2);
         System.out.println(line3);
 
+        System.out.println();
         line1.setBegin(0, 0);
         line2.setEnd(15, 15);
 
@@ -87,6 +88,7 @@ public class Main {
         System.out.println(line2);
         System.out.println(line3);
 
+        System.out.println();
         line1.setEnd(0, 30);
 
         System.out.println(line1);
@@ -96,8 +98,35 @@ public class Main {
         System.out.println();
 
         // 1.2.2.
+        System.out.println("1.2.2. Человек в комбинации с Именем.");
+
+        Human human1 = new Human(
+                new Name(
+                    "",
+                    "Клеопатра",
+                    ""),
+                152);
+        Human human2 = new Human(
+                new Name(
+                        "Пушкин",
+                        "Александр",
+                        "Сергеевич"),
+                167);
+        Human human3 = new Human(
+                new Name(
+                    "Маяковский",
+                    "Владимир",
+                    ""),
+                189);
+
+        System.out.println(human1);
+        System.out.println(human2);
+        System.out.println(human3);
+
+        System.out.println();
 
         // 1.2.3.
+
 
         // 1.2.4.
 
