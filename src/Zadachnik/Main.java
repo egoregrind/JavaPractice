@@ -299,6 +299,20 @@ public class Main {
         System.out.println();
 
         // 1.4.7.
+        System.out.println(new Student("Вася", 3, 4, 5));
+        System.out.println(new Student("Максим"));
 
+        System.out.println();
+
+        // 1.4.8.
+        System.out.println(new Town("Саратов"));
+        System.out.println(
+                new Town(
+                        "Москва",
+                        new Route(townA),
+                        new Route(townB)
+                ));
+
+        System.out.println();
     }
 }

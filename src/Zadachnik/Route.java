@@ -9,6 +9,10 @@ public class Route {
         this.cost = cost;
     }
 
+    public Route(Town target) {
+        this(target, 0);
+    }
+
     @Override
     public String toString() {
         return target.getTitle() + ": " + cost;

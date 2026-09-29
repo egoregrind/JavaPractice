@@ -8,11 +8,19 @@ public class Town {
     private List<Route> routes;
 
     public Town(String title) {
+        this(title, new ArrayList<>());
+    }
+
+    public Town(String title, List<Route> routes) {
         if (title == null || title.isBlank()) {
             throw new IllegalArgumentException("Город должен быть с названием");
         }
         this.title = title;
-        this.routes = new ArrayList<>();
+        this.routes = new ArrayList<>(routes);
+    }
+
+    public Town(String title, Route... routes) {
+        this(title, List.of(routes));
     }
 
     public String getTitle() {
