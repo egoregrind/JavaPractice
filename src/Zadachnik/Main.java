@@ -251,8 +251,6 @@ public class Main {
 
         System.out.println();
 
-        // 1.4.2. - см. 1.3.2.
-
         // 1.4.3.
         PolyLine pl3 = new PolyLine();
         PolyLine pl4 = new PolyLine(p1, p2, p3);
@@ -314,5 +312,34 @@ public class Main {
                 ));
 
         System.out.println();
+
+        // 1.5.1.
+        System.out.println("1.5.1. Сущность Пистолет.");
+
+        Gun gun = new Gun(3);
+        for (int i = 0; i < 5; i++) {
+            gun.fire();
+        }
+
+        System.out.println();
+
+        // 1.5.5.
+        System.out.println("1.5.2. Сущность  Дробь.");
+
+        Decimal decimal1 = new Decimal(1, 5);
+        System.out.println(decimal1);
+
+        System.out.println();
+
+        Point p4 = new Point(1, 2);
+        Point p4Copy = new Point(p4);
+
+        System.out.println(p4);
+        System.out.println(p4Copy);
+
+        p4.set(2,4);
+
+        System.out.println(p4);
+        System.out.println(p4Copy);
     }
 }

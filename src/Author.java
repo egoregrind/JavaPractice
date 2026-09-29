@@ -24,7 +24,7 @@ public class Author {
 
     public void addBook(Book b) {
         if (b == null) {
-            throw new IllegalArgumentException();
+            return;
         }
 
         this.books.addLast(b);
