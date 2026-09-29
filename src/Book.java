@@ -1,24 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
     private String title;
-    private Author author;
+    private List<Author> authors;
 
-    public Book(String title, Author author) {
+    public Book(String title, List<Author> authors) {
         if (title == null || title.isBlank()) {
             throw new IllegalArgumentException();
         }
         this.title = title;
 
-        if (author == null) {
-            this.author = new Author(Author.UNKNOWN_AUTHOR);
+        if (authors == null) {
+            this.authors = new ArrayList<>();
         } else {
-            this.author = author;
+            this.authors = new ArrayList<>(authors);
         }
 
-        author.addBook(this);
+        for (Author author : this.authors) {
+            author.addBook(this);
+        }
+    }
+
+    public Book(String title, Author... authors) {
+        this(title, List.of(authors));
     }
 
     public Book(String title) {
-        this(title, null);
+        this(title, new ArrayList<>());
     }
 
     public String getTitle() {
@@ -30,12 +39,19 @@ public class Book {
         if (title == null || title.isBlank()) {
             return "Информация о книге отсутствует";
         }
-        if (author == null) {
-            author = new Author(Author.UNKNOWN_AUTHOR);
+        String res = "Книга \"" + title + "\" - ";
+        if (authors == null) {
+            res += Author.UNKNOWN_AUTHOR;
+        } else {
+            for (Author author : authors) {
+                res += " " + author;
+
+                if (author != authors.getLast()) {
+                    res += ", ";
+                }
+            }
         }
-        return "Книга \"" +
-                title +
-                "\" - " +
-                author;
+
+        return res;
     }
 }

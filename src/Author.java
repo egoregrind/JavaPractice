@@ -28,7 +28,7 @@ public class Author {
         }
 
         this.books.addLast(b);
-        System.out.println("[added] " + b);
+        System.out.println("[added to \"" + name + "\"] " + b.getTitle());
     }
 
     public String printBooks() {
