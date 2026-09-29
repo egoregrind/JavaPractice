@@ -16,11 +16,29 @@ public class Human {
         this(name, UNKNOWN_HEIGHT);
     }
 
+    public Human(String firstName) {
+        this(new Name("", firstName, ""));
+    }
+
+    public Human(Name name, Human father) {
+        this(name);
+        setMiddleNameByFather(father);
+    }
+
+    public Human(String firstName, Human father) {
+        this(new Name("", firstName, ""));
+        setMiddleNameByFather(father);
+    }
+
     public void setFather(Human father) {
+        this.father = father;
+        setMiddleNameByFather(father);
+    }
+
+    private void setMiddleNameByFather(Human father) {
         if (father != null && !name.hasMiddleName()) {
             name.setMiddleName(father.name.getFirstName() + "ович");
         }
-        this.father = father;
     }
 
     @Override

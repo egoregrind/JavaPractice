@@ -13,7 +13,7 @@ public class House {
 
     @Override
     public String toString() {
-        String res = "дом с " + floorCount;
+        String res = "Дом с " + floorCount;
 
         if (floorCount % 10 == 1) {
             res += " этажом";

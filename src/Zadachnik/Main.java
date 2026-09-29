@@ -242,5 +242,63 @@ public class Main {
 
         System.out.println();
 
+        // 1.4.1.
+        Point p1 = new Point(3, 5);
+        Point p2 = new Point(25, 6);
+        Point p3 = new Point(7, 8);
+
+        System.out.println(p1 + ", " + p2 + ", " + p3);
+
+        System.out.println();
+
+        // 1.4.2. - см. 1.3.2.
+
+        // 1.4.3.
+        PolyLine pl3 = new PolyLine();
+        PolyLine pl4 = new PolyLine(p1, p2, p3);
+
+        System.out.println(pl3);
+        System.out.println(pl4);
+
+        System.out.println();
+
+        // 1.4.4.
+        House house1 = new House(2);
+        House house2 = new House(35);
+        House house3 = new House(91);
+
+        // house1.floorCount = 1000;
+
+        System.out.println(house1);
+        System.out.println(house2);
+        System.out.println(house3);
+
+        System.out.println();
+
+        // 1.4.5.
+        Name name1 = new Name("Бонифатьевич", "Христофор", "");
+
+        System.out.println(name1);
+
+        System.out.println();
+
+        // 1.4.6.
+        Human human7 = new Human("Лев");
+        Human human8 = new Human(
+                new Name(
+                        "Пушкин",
+                        "Сергей",
+                        ""),
+                human7);
+        Human human9 = new Human("Александр", human8);
+
+        System.out.println(human7);
+        System.out.println(human8);
+        System.out.println(human9);
+
+        System.out.println();
+
+        // 1.4.7.
+
     }
 }
