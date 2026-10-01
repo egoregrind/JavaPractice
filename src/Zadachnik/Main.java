@@ -252,10 +252,10 @@ public class Main {
         System.out.println();
 
         // 1.4.3.
-        PolyLine pl3 = new PolyLine();
+//        PolyLine pl3 = new PolyLine();
         PolyLine pl4 = new PolyLine(p1, p2, p3);
 
-        System.out.println(pl3);
+//        System.out.println(pl3);
         System.out.println(pl4);
 
         System.out.println();
@@ -331,15 +331,21 @@ public class Main {
 
         System.out.println();
 
-        Point p4 = new Point(1, 2);
-        Point p4Copy = new Point(p4);
+        PolyLine pl5 = new PolyLine(
+                new Point(1, 2),
+                new Point(3, 4),
+                new Point(5, 1));
+        PolyLine pl6 = new PolyLine(
+                pl5.getBegin(),
+                new Point(4, 5),
+                new Point(543, 12));
 
-        System.out.println(p4);
-        System.out.println(p4Copy);
+        System.out.println(pl5);
+        System.out.println(pl6);
 
-        p4.set(2,4);
+        pl5.setPoint(0, 40,50);
 
-        System.out.println(p4);
-        System.out.println(p4Copy);
+        System.out.println(pl5);
+        System.out.println(pl6);
     }
 }
