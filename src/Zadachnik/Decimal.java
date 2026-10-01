@@ -1,36 +1,48 @@
 package Zadachnik;
 
 public class Decimal {
-    private int enumerator;
-    private int determiner;
+    private int numerator;
+    private int denominator;
 
-    public Decimal(int enumerator, int determiner) {
-        this.enumerator = enumerator;
-        this.determiner = determiner;
+    public Decimal(int numerator, int denominator) {
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
 
     static public Decimal mul(Decimal a, Decimal b) {
-        return new Decimal(
-                a.enumerator * b.enumerator,
-                a.determiner * b.determiner);
+        Decimal res = new Decimal(
+                a.numerator * b.numerator,
+                a.denominator * b.denominator);
+
+        res.relax();
+
+        return res;
     }
 
     public void relax() {
-        boolean relaxed = true;
+        if (denominator == 0) {
+            throw new ArithmeticException("Знаменатель не может быть равен нулю");
+        }
 
-        while (relaxed) {
-            if (enumerator % determiner == 0) {
+        int gcd = computeGcd(Math.abs(numerator), Math.abs(denominator));
 
-            }
+        numerator /= gcd;
+        denominator /= gcd;
+    }
 
-            if (determiner % enumerator == 0) {
-
+    private int computeGcd(int a, int b) {
+        while (a != 0 && b != 0) {
+            if (a > b) {
+                a %= b;
+            } else {
+                b %= a;
             }
         }
+        return a + b;
     }
 
     @Override
     public String toString() {
-        return enumerator + "/" + determiner;
+        return numerator + "/" + denominator;
     }
 }

@@ -323,29 +323,22 @@ public class Main {
 
         System.out.println();
 
+        // 1.5.2.
+
+        // 1.5.3.
+
+        // 1.5.4.
+
         // 1.5.5.
         System.out.println("1.5.2. Сущность  Дробь.");
 
-        Decimal decimal1 = new Decimal(1, 5);
+        Decimal decimal1 = new Decimal(40, 20);
         System.out.println(decimal1);
 
+        decimal1.relax();
+        System.out.println(decimal1);
+
+
         System.out.println();
-
-        PolyLine pl5 = new PolyLine(
-                new Point(1, 2),
-                new Point(3, 4),
-                new Point(5, 1));
-        PolyLine pl6 = new PolyLine(
-                pl5.getBegin(),
-                new Point(4, 5),
-                new Point(543, 12));
-
-        System.out.println(pl5);
-        System.out.println(pl6);
-
-        pl5.setPoint(0, 40,50);
-
-        System.out.println(pl5);
-        System.out.println(pl6);
     }
 }
