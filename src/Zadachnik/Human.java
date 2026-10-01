@@ -22,12 +22,29 @@ public class Human {
 
     public Human(Name name, Human father) {
         this(name);
+        this.father = father;
         setMiddleNameByFather(father);
     }
 
     public Human(String firstName, Human father) {
         this(new Name("", firstName, ""));
         setMiddleNameByFather(father);
+    }
+
+    public String getFirstName() {
+        return name.getFirstName();
+    }
+
+    public String getLastName() {
+        if (name.getLastName().isBlank() && father != null) {
+            return father.getLastName();
+        } else {
+            return name.getLastName();
+        }
+    }
+
+    public String getMiddleName() {
+        return name.getMiddleName();
     }
 
     public void setFather(Human father) {

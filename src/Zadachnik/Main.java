@@ -325,12 +325,36 @@ public class Main {
 
         // 1.5.2.
 
+
         // 1.5.3.
 
         // 1.5.4.
+        System.out.println("1.5.4. Отец моего отца.");
+
+        Human h1 = new Human(
+                new Name(
+                        "Иванов",
+                        "Иван",
+                        "Иванович"));
+        Human h2 = new Human(
+                new Name(
+                        "",
+                        "Олег",
+                        ""),
+                h1);
+        Human h3 = new Human(
+                new Name(
+                        "",
+                        "Степан",
+                        ""),
+                h2);
+
+        System.out.println(h3.getLastName());
+
+        System.out.println();
 
         // 1.5.5.
-        System.out.println("1.5.2. Сущность  Дробь.");
+        System.out.println("1.5.5. Сущность  Дробь.");
 
         Decimal decimal1 = new Decimal(40, 20);
         System.out.println(decimal1);

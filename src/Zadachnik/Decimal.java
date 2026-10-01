@@ -20,10 +20,6 @@ public class Decimal {
     }
 
     public void relax() {
-        if (denominator == 0) {
-            throw new ArithmeticException("Знаменатель не может быть равен нулю");
-        }
-
         int gcd = computeGcd(Math.abs(numerator), Math.abs(denominator));
 
         numerator /= gcd;
