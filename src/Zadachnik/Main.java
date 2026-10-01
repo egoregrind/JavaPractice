@@ -324,7 +324,13 @@ public class Main {
         System.out.println();
 
         // 1.5.2.
+        System.out.println("1.5.4. Сущность Кот.");
 
+        Cat cat = new Cat("Барсик");
+        cat.meow();
+        cat.meow(3);
+
+        System.out.println();
 
         // 1.5.3.
 
